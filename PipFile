@@ -5,10 +5,16 @@ name = "pypi"
 
 [packages]
 requests = "*"
-pandas = "*"
 numpy = "*"
 dask = "*"
 numba = "*"
+pyarrow = "*"
+urllib3 = "*"
+certifi = "*"
+pandas = "*"
+beautifulsoup4 = "*"
+lxml = "*"
+html5lib = "*"
 
 [dev-packages]
 
