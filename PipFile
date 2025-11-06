@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "*"
 numpy = "*"
 dask = "*"
 numba = "*"
@@ -15,6 +14,7 @@ lxml = "*"
 html5lib = "*"
 pyarrow = "*"
 certifi = "*"
+requests = "*"
 
 [dev-packages]
 

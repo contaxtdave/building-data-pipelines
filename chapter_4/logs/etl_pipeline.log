@@ -1,0 +1,20 @@
+2025-11-06 12:43:05,200 | INFO     | config.log_config | Logging to C:\Users\david\building-data-pipelines\chapter_4\logs\etl_pipeline.log
+2025-11-06 12:43:06,384 | INFO     | __main__ | Running as script
+2025-11-06 12:43:06,386 | INFO     | __main__ | Starting extracted_data()
+2025-11-06 12:43:06,943 | INFO     | __main__ | /users/david/building-data-pipelines/chapter_4/data/yellow_tripdata_2025-01.parquet : extracted 3475226 records from parquet file
+2025-11-06 12:43:06,966 | INFO     | __main__ | /users/david/building-data-pipelines/chapter_4/data/yellow_tripdata_sample.csv : extracted 5000 records from the csv file
+2025-11-06 12:43:07,707 | INFO     | __main__ | 200 - ok : while invoking the api https://data.cityofnewyork.us/resource/gkne-dk5s.json
+2025-11-06 12:43:07,724 | INFO     | __main__ | 200 - extracted 1000 records the api https://data.cityofnewyork.us/resource/gkne-dk5s.json
+2025-11-06 12:43:07,764 | INFO     | __main__ | movies- read 4773 records from the table: movies in the database: /users/david/building-data-pipelines/chapter_4/data/movies.sqlite
+2025-11-06 12:43:07,979 | INFO     | __main__ | https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal) - read 222 records from the page.
+2025-11-06 12:43:07,980 | INFO     | __main__ | Done building dataframes
+2025-11-06 12:43:07,980 | INFO     | __main__ | Returned 5 dataframes
+2025-11-06 12:45:54,908 | INFO     | config.log_config | Logging to C:\Users\david\building-data-pipelines\chapter_4\logs\etl_pipeline.log
+2025-11-06 12:46:33,450 | INFO     | extraction.extraction_functional_enhanced | Starting extracted_data()
+2025-11-06 12:46:33,895 | INFO     | extraction.extraction_functional_enhanced | /users/david/building-data-pipelines/chapter_4/data/yellow_tripdata_2025-01.parquet : extracted 3475226 records from parquet file
+2025-11-06 12:46:33,926 | INFO     | extraction.extraction_functional_enhanced | /users/david/building-data-pipelines/chapter_4/data/yellow_tripdata_sample.csv : extracted 5000 records from the csv file
+2025-11-06 12:46:34,668 | INFO     | extraction.extraction_functional_enhanced | 200 - ok : while invoking the api https://data.cityofnewyork.us/resource/gkne-dk5s.json
+2025-11-06 12:46:34,668 | INFO     | extraction.extraction_functional_enhanced | 200 - extracted 1000 records the api https://data.cityofnewyork.us/resource/gkne-dk5s.json
+2025-11-06 12:46:34,726 | INFO     | extraction.extraction_functional_enhanced | movies- read 4773 records from the table: movies in the database: /users/david/building-data-pipelines/chapter_4/data/movies.sqlite
+2025-11-06 12:46:34,939 | INFO     | extraction.extraction_functional_enhanced | https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal) - read 222 records from the page.
+2025-11-06 12:46:34,942 | INFO     | extraction.extraction_functional_enhanced | Done building dataframes

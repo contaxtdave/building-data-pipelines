@@ -3,7 +3,7 @@ from urllib3 import request
 import certifi
 import json
 import sqlite3
-
+import requests
 import pandas as pd
 import logging
 
@@ -62,22 +62,31 @@ def source_data_from_table(db_name, table_name):
 
 def source_data_from_webpage(web_page_url, matching_keyword):
     try:
-        # Read webpage table into a pandas DataFrame
-        df_html = pd.read_html(web_page_url, match = matching_keyword)
-        df_html = df_html[0]
-        logger.info(f'{web_page_url}- read {df_html.shape[0]} records from the page: {web_page_url}')
+        # --- Step 1: Add a proper user-agent header ---
+        headers = {"User-Agent": "Mozilla/5.0 (compatible; ETL-script/1.0; +https://github.com/dross)"}
+
+        # --- Step 2: Get page HTML manually using requests ---
+        response = requests.get(web_page_url, headers=headers, timeout=15)
+        response.raise_for_status()  # raises HTTPError for 403, 404, etc.
+
+        # --- Step 3: Parse HTML tables from the text ---
+        df_list = pd.read_html(response.text, match=matching_keyword)
+        df_html = df_list[0]
+
+        logger.info(f"{web_page_url} - read {df_html.shape[0]} records from the page.")
     except Exception as e:
-        logger.exception(f'{db_name} : - exception {e} encountered while reading data from the page {web_page_url}')
+        logger.exception(f"{web_page_url} : - exception {e} encountered while reading data from the page {web_page_url}")
         df_html = pd.DataFrame()
     return df_html
-
+    
 def extracted_data():
-    parquet_file_name = "chapter_4/data/yellow_tripdata_2025-01.parquet"
-    csv_file_name = "chapter_4/data/yellow_tripdata_sample.csv"
-    api_endpoint = "https://data.cityofnewyork.us/resource/hgi-nx95.json?$"limit"
-    db_name = "chapter_4/data/movies.sqlite"
+    logger.info("Starting extracted_data()")
+    parquet_file_name = "/users/david/building-data-pipelines/chapter_4/data/yellow_tripdata_2025-01.parquet"
+    csv_file_name = "/users/david/building-data-pipelines/chapter_4/data/yellow_tripdata_sample.csv"
+    api_endpoint = "https://data.cityofnewyork.us/resource/gkne-dk5s.json"
+    db_name = "/users/david/building-data-pipelines/chapter_4/data/movies.sqlite"
     table_name = "movies"
-    web_page_url = "https://en.wikipedia.org/wiki/List_of_countries_by_GOP_(nominal)"
+    web_page_url = "https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)"
     matching_keyword = "by country"
 
     # Extract data from all source systems
@@ -88,7 +97,13 @@ def extracted_data():
                                                  source_data_from_api(api_endpoint),
                                                  source_data_from_table(db_name, table_name),
                                                  source_data_from_webpage(web_page_url, matching_keyword))
+    logger.info("Done building dataframes")
     return df_parquet, df_csv, df_api, df_table, df_html
+
+if __name__ == "__main__":
+    logger.info("Running as script")
+    dfs = extracted_data()
+    logger.info("Returned %d dataframes", len(dfs))
     
         
     
