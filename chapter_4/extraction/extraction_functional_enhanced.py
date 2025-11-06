@@ -74,7 +74,7 @@ def source_data_from_webpage(web_page_url, matching_keyword):
 def extracted_data():
     parquet_file_name = "chapter_4/data/yellow_tripdata_2025-01.parquet"
     csv_file_name = "chapter_4/data/yellow_tripdata_sample.csv"
-    api_endpoint = "http://data.cityofnewyork.us/resource/hgi-nx95.json?$limit=500"
+    api_endpoint = "https://data.cityofnewyork.us/resource/hgi-nx95.json?$"limit"
     db_name = "chapter_4/data/movies.sqlite"
     table_name = "movies"
     web_page_url = "https://en.wikipedia.org/wiki/List_of_countries_by_GOP_(nominal)"
