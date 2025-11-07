@@ -1,3 +1,7 @@
+from bootstrap import bootstrap
+logger, logpath = bootstrap(level="INFO")
+logger.info(f"Initialized logging -> {logpath}")
+
 from transformation.pipeline import CrashDataPipeline
 
 pipe = CrashDataPipeline(
