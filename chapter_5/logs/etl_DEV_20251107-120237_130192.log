@@ -1,0 +1,3 @@
+2025-11-07 12:02:37,234 | INFO     | pid=130192 | config.log_config | Logging to C:\Users\david\building-data-pipelines\chapter_5\logs\etl_DEV_20251107-120237_130192.log
+2025-11-07 12:02:37,236 | INFO     | pid=130192 | bootstrap | Notebook logging initialized
+2025-11-07 12:02:37,237 | INFO     | pid=130192 | bootstrap | Driver initialized. Writing logs to: C:\Users\david\building-data-pipelines\chapter_5\logs\etl_DEV_20251107-120237_130192.log
