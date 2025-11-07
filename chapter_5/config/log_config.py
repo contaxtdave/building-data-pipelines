@@ -7,7 +7,7 @@ def log_config():
     project_root = Path(__file__).resolve().parents[1]
     logs_dir = project_root / "logs"
     logs_dir.mkdir(parents=True, exist_ok=True)
-    logfile = logs_dir / "transformationpipeline.log"
+    logfile = logs_dir / "etl_pipeline.log"
 
     LOGGING = {
         "version": 1,
