@@ -1,0 +1,9 @@
+2025-11-07 10:32:03,893 | INFO     | pid=45932 | config.log_config | Logging to c:\Users\david\building-data-pipelines\chapter_5\logs\etl_DEV_20251107-103203_45932.log
+2025-11-07 10:32:03,898 | INFO     | pid=45932 | __main__ | Notebook logging initialized
+2025-11-07 10:32:03,901 | INFO     | pid=45932 | __main__ | bootstrap.py executed as a script
+2025-11-07 10:32:03,914 | INFO     | pid=45932 | config.log_config | Logging to c:\Users\david\building-data-pipelines\chapter_5\logs\etl_DEV_20251107-103203_45932.log
+2025-11-07 10:32:03,916 | INFO     | pid=45932 | __main__ | Notebook logging initialized
+2025-11-07 10:32:03,918 | INFO     | pid=45932 | __main__ | Ready. Writing to: c:\Users\david\building-data-pipelines\chapter_5\logs\etl_DEV_20251107-103203_45932.log
+2025-11-07 10:32:03,921 | INFO     | pid=45932 | transformation.pipeline | Starting transformation pipeline
+2025-11-07 10:32:03,980 | INFO     | pid=45932 | __main__ | <OK> - read_data_pipeline finished successfully
+2025-11-07 10:32:04,000 | INFO     | pid=45932 | __main__ | <OK> - drop_rows_with_null_values finished successfully

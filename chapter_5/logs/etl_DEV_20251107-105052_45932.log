@@ -1,0 +1,17 @@
+2025-11-07 10:50:52,803 | INFO     | pid=45932 | config.log_config | Logging to c:\Users\david\building-data-pipelines\chapter_5\logs\etl_DEV_20251107-105052_45932.log
+2025-11-07 10:50:52,807 | INFO     | pid=45932 | __main__ | Notebook logging initialized
+2025-11-07 10:50:52,810 | INFO     | pid=45932 | __main__ | bootstrap.py executed as a script
+2025-11-07 10:50:52,824 | INFO     | pid=45932 | config.log_config | Logging to c:\Users\david\building-data-pipelines\chapter_5\logs\etl_DEV_20251107-105052_45932.log
+2025-11-07 10:50:52,827 | INFO     | pid=45932 | __main__ | Notebook logging initialized
+2025-11-07 10:50:52,831 | INFO     | pid=45932 | __main__ | Ready. Writing to: c:\Users\david\building-data-pipelines\chapter_5\logs\etl_DEV_20251107-105052_45932.log
+2025-11-07 10:50:52,834 | INFO     | pid=45932 | transformation.pipeline | Starting transformation pipeline
+2025-11-07 10:50:52,836 | INFO     | pid=45932 | __main__ | Running read_data_pipeline
+2025-11-07 10:50:52,881 | INFO     | pid=45932 | __main__ | <OK> - read_data_pipeline finished successfully
+2025-11-07 10:50:52,883 | INFO     | pid=45932 | __main__ | Running drop_rows_with_null_values_pipeline
+2025-11-07 10:50:52,898 | INFO     | pid=45932 | __main__ | <OK> - drop_rows_with_null_values finished successfully
+2025-11-07 10:50:52,900 | INFO     | pid=45932 | __main__ | Running fill_missing_values_pipeline
+2025-11-07 10:50:52,902 | INFO     | pid=45932 | __main__ | <OK> - fill_missing_values finished successfully
+2025-11-07 10:50:52,904 | INFO     | pid=45932 | __main__ | Running merge_dataframes_pipeline
+2025-11-07 10:50:52,917 | INFO     | pid=45932 | __main__ | <OK> - merge_dataframes finished successfully
+2025-11-07 10:50:52,920 | INFO     | pid=45932 | __main__ | Running format_dataframes_pipeline
+2025-11-07 10:50:52,925 | INFO     | pid=45932 | __main__ | <OK> - rename_columns finished successfully
