@@ -1,6 +1,6 @@
 # bootstrap.py
 from pathlib import Path
-import sys, importlib, logging, time, os
+import sys, importlib, logging, time, os, datetime
 
 def bootstrap(
         project_root: str | Path | None = None,
@@ -30,27 +30,31 @@ def bootstrap(
 
         # Build unique logfile name
         now = datetime.datetime.now()
-        ts = now.strftime("%Y%m%d_%H%M%S_%f")[:-3] # trim to milliseconds
+        ts = now.strftime("%Y-%m-%d_%H-%M")
         pid = os.getpid()
-        logfile = logs_dir / f"{prefix}{ts}_PID{pid}.log"
+        logfile = logs_dir / f"{prefix}{ts}_{pid}.log"
 
 
-        # Close any existing handlers before configuring
+        # --- FIX: safely remove any existing handlers (keep these 6 lines exactly) ---
         root = logging.getLogger()
-        for h in list(root.handlers):
+        for handler in root.handlers[:]:  # copy the list to avoid mutation issues
             try:
-                h.flush(); h.close()
+                handler.flush(); handler.close()
             except Exception:
                 pass
-        root.removeHandler(h)
+            root.removeHandler(handler)
+        # ---------------------------------------------------------------------------
+
 
         import config.log_config as lc
         importlib.invalidate_caches()
         importlib.reload(lc)
 
+
+        lc.log_config(logfile, level=level)
         lc.normalize_loggers()
         logger = lc.get_logger(__name__)
-        logger.info("Notebook logging initialized")
+        logger.info(f"Initialized logging -> {logfile}")
 
         return logger, logfile
 
